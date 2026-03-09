@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root{
+    --main-color:#00699c;
+    --second-color:#ffd300;
+    --dark-color :#313131 ;
+    --light-color:#F9F9F9 ;
+    --navey-color:#222733 ;
+    --main-font : "Montserrat", sans-serif;
+    --arabic-font:"Cairo", sans-serif;
+}
+
+body{
+  background-color: var(--main-color);
+  font-family: var(--main-font);
+}
+
+section{
+  padding: 80px 0px;
+}
+ 
+
+a{
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+<section class="cart-section py-4">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <h2 class="cart-title">Your Cart</h2>
+      <h6 class="cart-title">Your Balance : {{ customer().balance | currency:'EGP' }}</h6>
+    </div>
+
+    <div class="row">
+      @for (item of cart().items; track $index) {
+      <div class="col-md-4 my-2">
+        <div class="card cart-card shadow-sm">
+          <div class="card-body position-relative">
+            <button class="btn btn-sm btn-outline-danger position-absolute top-0 end-0 m-2"
+              (click)="deleteCartItem(item.id)" title="Remove item">
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <h5 class="product-name">{{ item.product.name }}</h5>
+            <p><strong>Price:</strong> {{ item.product.price | currency:'EGP' }}</p>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p><strong>Weight:</strong> {{ item.product.weight }} KG</p>
+            <p><strong>Shippable:</strong>
+              <span class="badge" [ngClass]="item.product.is_shippable ? 'bg-success' : 'bg-danger'">
+                {{ item.product.is_shippable ? 'Yes' : 'No' }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      }@empty {
+      <a class="shop-now" routerLink="/products">you can add products to your cart .. </a>
+      }
+    </div>
+
+
+
+    <div *ngIf="cart().total_price > 0"
+      class="total-box mt-4 p-3 shadow-sm d-flex justify-content-between align-items-center flex-wrap">
+      <h4>Total: <span class="text-main">{{ cart().total_price | currency:'EGP' }}</span></h4>
+      <div class="btn-group mt-2 mt-md-0">
+        <button class="btn btn-outline-danger" (click)="deleteCart()" title="Delete all">
+          <i class="bi bi-trash-fill me-1"></i> Delete Cart
+        </button>
+        <button class="btn btn-checkout ms-2" (click)="checkout()" [disabled]="cart().total_price>customer().balance"
+          title="Checkout">
+          <i class="bi bi-check-circle-fill me-1"></i> Checkout
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

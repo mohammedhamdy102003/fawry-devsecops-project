@@ -1,0 +1,20 @@
+.card{
+  background-color: var(--navey-color);
+  color: var(--light-color);
+  border: none;
+  text-align: center;
+  padding: 10px;
+}
+h3{
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--light-color);
+
+}
+
+.btn-add{
+  /* display: inline-block;
+  margin: 0 auto; */
+  background-color: var(--second-color);
+  color: var(--navey-color);
+}

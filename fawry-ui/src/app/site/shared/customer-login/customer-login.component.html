@@ -1,0 +1,51 @@
+<section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center p-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+        <div class="card mb-0 border border-0">
+          <div class="card-body">
+            <div class="p-0">
+              <h5 class="card-title text-center pb-0 fs-4 fw-bold">Welcome Our Customer</h5>
+              <p class="text-center small">Enter your name , email & balancde to login</p>
+              <img src="./fawry.jpeg" height="200px" class="w-50 rounded-circle d-block mx-auto">
+            </div>
+            <form class="row gy-2 gx-3 needs-validation" [formGroup]="customerLoginForm"
+              (ngSubmit)="customerLogin(customerLoginForm)">
+              <div class="col-6">
+                <label for="name" class="form-label">name</label>
+                <input type="text" formControlName="name"
+                  [ngClass]="{'is-invalid':(customerLoginForm.controls.name.touched && customerLoginForm.controls.name.errors) }"
+                  name="name" class="form-control" id="name" required>
+                <div class="invalid-feedback">Please enter your name!</div>
+              </div>
+              <div class="col-6">
+                <label for="email" class="form-label">email</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend"></span>
+                  <input type="email" formControlName="email"
+                    [ngClass]="{'is-invalid':(customerLoginForm.controls.email.touched && customerLoginForm.controls.email.errors) }"
+                    name="email" class="form-control" id="email" required>
+                  <div class="invalid-feedback">Please enter your email.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="balance" class="form-label">balance</label>
+                <input type="number" formControlName="balance"
+                  [ngClass]="{'is-invalid':(customerLoginForm.controls.balance.touched && customerLoginForm.controls.balance.errors) }"
+                  balance="balance" class="form-control" id="balance" required>
+                <div class="invalid-feedback">Please enter your balance!</div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-dark w-100" [disabled]="customerLoginForm.invalid || isLoading()" type="submit">
+                  @if(isLoading()) {
+                  <span class="spinner-border spinner-border-sm me-2"></span>
+                  }
+                  Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

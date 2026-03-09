@@ -1,0 +1,6 @@
+footer p{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--light-color);
+}

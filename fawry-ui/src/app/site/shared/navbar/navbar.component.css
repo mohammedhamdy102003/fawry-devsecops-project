@@ -1,0 +1,23 @@
+.navbar-brand{
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--second-color);
+}
+.nav-item .nav-link{
+  color: var(--light-color);
+  font-size: 18px;
+}
+
+a i {
+  font-size: 26px;
+  color: var(--light-color);
+  padding: 0 2px;
+}
+
+
+.active{
+  transition: all .5s;
+  color: var(--second-color) !important;
+  scale: 1.1;
+}
+
