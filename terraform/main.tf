@@ -24,6 +24,7 @@ module "eks" {
  
   cluster_role_arn   = module.iam.eks_cluster_role_arn
   node_role_arn      = module.iam.eks_nodes_role_arn
+  cluster_policy_attachment = module.iam.eks_cluster_role_arn
 }
 
 
