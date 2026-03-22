@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespacE: backend-tier
+data:
+  DB_HOST: "mysql-svc.database-tier.svc.cluster.local"
+  DB_PORT: "3306"
+  DB_DATABASE: "fawry_db"
+  DB_USERNAME: "root"

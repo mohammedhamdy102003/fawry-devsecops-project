@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: database-tier
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:8.0
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: mysql-root-password
+        volumeMounts:
+        - name: storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+

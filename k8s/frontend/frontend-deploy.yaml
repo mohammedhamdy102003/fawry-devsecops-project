@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fawry-frontend
+  namespace: frontend-tier
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fawry-frontend
+  template:
+    metadata:
+      labels:
+        app: fawry-frontend
+    spec:
+      imagePullSecrets:
+        - name: ecr-registry-helper
+      containers:
+      - name: frontend
+        image: 374862008657.dkr.ecr.us-east-1.amazonaws.com/fawry-devsecops-prod-fawry-frontend:latest
+        ports:
+        - containerPort: 80
